@@ -1,0 +1,13 @@
+from Bio import SeqIO
+
+# Lista de tus archivos GenBank
+archivos_gb = ["JN248591.1.gb", "MT749419.1.gb", "ON862691.1.gb", "AY561242.1.gb", "MG729332.1.gb"]
+
+with open("vif_5secuencias.fasta", "w") as salida:
+    for archivo in archivos_gb:
+        registro = SeqIO.read(archivo, "genbank")
+        for feature in registro.features:
+            if feature.type == "CDS" and "vif" in feature.qualifiers.get("gene", [""])[0].lower():
+                secuencia = feature.extract(registro.seq)
+                salida.write(f">{registro.id}|{registro.annotations['organism']}\n{secuencia}\n")
+                

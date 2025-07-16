@@ -1,0 +1,6 @@
+ID,País,Subtipo,Notas
+MG729332,México,B,partial
+AY561242,Colombia,B,
+MT749419,Brasil,B,partial
+JN248591,Nigeria,CRF02_AG,
+ON862691,Sudáfrica,C,
